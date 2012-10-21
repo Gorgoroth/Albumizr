@@ -5,8 +5,8 @@ Albumizr::Application.routes.draw do
   # match '/signin',  to: 'sessions#new'
   # match '/signout', to: 'sessions#destroy', via: :delete
 
-  # resources :users, only: [:new, :create]
-  # match '/signup'  => 'users#new'
+  resources :users, only: [:new, :create]
+  match '/signup'  => 'users#new', as: 'signup'
 
-  # root  to:          signup_path
+  root :to => 'users#new'
 end
