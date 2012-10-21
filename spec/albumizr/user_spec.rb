@@ -7,6 +7,7 @@ module Albumizr
     subject { @user }
 
     it { should respond_to(:name) }
+    it { should respond_to(:authenticate) }
     it { should be_valid }
 
     describe "rejects name if blank" do

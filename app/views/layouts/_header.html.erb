@@ -2,11 +2,17 @@
       <div class="navbar-inner">
         <div class="container">
           <div class="navbar">
-            <a class="brand" href="./">Albumizr</a>
+            <%= link_to "Albumizr", root_path, class: "brand" %>
             <p class="navbar-text pull-left">Don't worry, Albumizr takes care.</p>
             <ul class="nav pull-right">
-              <li class="active"><a href="#">Your albums</a></li>
-              <li><a href="#">Sign out</a></li>
+              <% if signed_in? %>
+                <li><%= link_to "Your albums", '#' %></li>
+                <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+              <% else %>
+                <li><%= link_to "Sign up", signup_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Sign in", signin_path %></li>
+              <% end %>
             </ul>
           </div>
         </div>
