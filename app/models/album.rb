@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-  attr_accessible :user_id, :user, :title, :artist, :year
+  attr_accessible :user_id, :user, :title, :artist, :year, :cover
 
   validates_presence_of :user
   validates_presence_of :title
@@ -8,6 +8,11 @@ class Album < ActiveRecord::Base
   validates_numericality_of :year, :greater_than => 1889
 
   belongs_to :user
+
+  has_attached_file :cover, {
+    :styles => { :thumb=> "150x150#", :medium => "300x300#" },
+    :default_url => '/assets/missing_:style.png'
+  }
 
   def self.search(search)
     if search
