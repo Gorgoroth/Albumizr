@@ -2,13 +2,13 @@ Feature: Signing up
 
   As a visitor
   I want to create an account (sign up)
-  So I can use the app
+  So that I can sign in and use the app
 
   Scenario: Successful signup
     Given I am on the signup page
     When I submit valid signup information
     Then I should get logged in
-      And I should see a signup success message
+      And I should see a success message
 
   Scenario Outline: Unsuccessful signup
     Given I am on the signup page
@@ -16,7 +16,7 @@ Feature: Signing up
     Then I should see an error message
       And I should see the signup form
 
-    Scenarios: empty fields
+    Scenarios: empty inputs
       | username | password | confirmation |
       |          |          |              |
       |          | 123456   |              |
@@ -26,13 +26,13 @@ Feature: Signing up
       | ABCD     | 123456   |              |
       | ABCD     |          | 123456       |
 
-    Scenarios: too short
+    Scenarios: too short inputs
       | username | password | confirmation |
       | A        | 12345    | 12345        |
       | A        | 123456   | 123456       |
       | AB       | 12345    | 12345        |
 
-    Scenarios: not matching
+    Scenarios: password and confirmation not matching
       | username | password | confirmation |
       | AB       | 123456   | 654321       |
 

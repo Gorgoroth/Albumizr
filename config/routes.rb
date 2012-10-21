@@ -1,5 +1,5 @@
 Albumizr::Application.routes.draw do
-  # resources :albums
+  resources :albums
 
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin',  to: 'sessions#new'
@@ -8,5 +8,5 @@ Albumizr::Application.routes.draw do
   resources :users, only: [:new, :create]
   match '/signup'  => 'users#new', as: 'signup'
 
-  root :to => 'users#new'
+  root :to => "albums#index"
 end

@@ -2,7 +2,7 @@ Feature: Authentication
 
   As a registered user
   I want to login and out
-  So I can use the app
+  So that I can use the app
 
   Scenario: Unsuccessful signin
     Given I am on the signin page
@@ -26,3 +26,9 @@ Feature: Authentication
     Given I am currently logged in
     When I visit the signin page
     Then I should not see it
+
+  Scenario: Session hijacking
+    Given I am currently logged in
+      And there is another user registered
+    When I change the user id in the session cookie
+    Then I should not be able to act as the other user
