@@ -45,6 +45,12 @@ describe Album do
     @album.should_not be_valid
   end
 
+  describe "images" do
+    it "should not exceed 1.44 MB"
+    it "should be of filetype JPEG or PNG"
+    it "should be resized properly"
+  end
+
   describe "search" do
     it "should return the title I searched for if it exists"
     it "should return all titles if I search for a blank title"

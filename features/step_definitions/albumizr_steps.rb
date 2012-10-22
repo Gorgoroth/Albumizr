@@ -20,11 +20,7 @@ Then /^I should see an error message$/ do
 end
 
 Then /^I should see a success message$/ do
-  page.should have_selector('div.alert.alert-error')
-end
-
-Then /^I should see a goodbye message$/ do
-  page.should have_content('We will miss you here at Albumizr!')
+  page.should have_selector('div.alert.alert-success')
 end
 
 
@@ -99,7 +95,6 @@ When /^I submit invalid "(.*?)" and\/or "(.*?)" and "(.*?)"$/ do |username, pass
   fill_in "Username", with: username
   fill_in "Password", with: password
   fill_in "Password confirmation", with: confirmation
-  fill_in "user_id", with: @user.id
   click_button "Sign up"
 end
 
@@ -120,7 +115,7 @@ When /^I signout$/ do
   click_link "Sign out"
 end
 
-Then /^I should not be signed in$/ do
+Then /^I should not be signed in anymore$/ do
   page.should_not have_link('Sign out', href: signout_path)
 end
 

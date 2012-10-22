@@ -19,8 +19,7 @@ Feature: Authentication
   Scenario: Successful signout
     Given I am currently logged in
     When I signout
-    Then I should not be signed in
-      And I should see a goodbye message
+    Then I should not be signed in anymore
 
   Scenario: Impossible signin
     Given I am currently logged in
