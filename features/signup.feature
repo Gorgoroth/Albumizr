@@ -39,4 +39,4 @@ Feature: Signing up
   Scenario: Impossible signup
     Given I am currently logged in
     When I visit the signup page
-    Then I should be able to see it
+    Then I should not be able to see it

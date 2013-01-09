@@ -10,7 +10,7 @@ Feature: Authentication
     Then I should see an error message
       And I should see the signin form
 
-  Scenario: Successful signin
+  Scenario: Successful signinw
     Given I am on the signin page
       And I am a registered user
     When I submit valid signin information
